@@ -1,0 +1,18 @@
+generates:
+  src/types/dynamicTypes.ts:
+    schema: 'src/schema/**/*graphql'
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      avoidOptionals: false
+      typesPrefix: I
+      enumPrefix: false
+      declarationKind:
+        type: 'interface'
+        input: 'interface'
+      scalars:
+        AWSDateTime: string
+        JSON: object
+
+

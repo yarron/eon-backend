@@ -1,0 +1,18 @@
+# import MutationResponse from "./Common.graphql"
+
+input Login {
+  email: String
+  password: String
+  me: Boolean
+}
+
+type User {
+  email: String!
+}
+
+type LoginMutationResponse implements MutationResponse {
+  code: Int!
+  success: Boolean!
+  message: String!
+  user: User
+}

@@ -1,0 +1,12 @@
+# import Meta from "./Common.graphql"
+
+type Country {
+  id: Int
+  shortName: String
+  fullName: String
+}
+
+type CountriesRequest {
+  nodes: [Country]
+  meta: Meta
+}

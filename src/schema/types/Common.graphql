@@ -1,0 +1,15 @@
+interface MutationResponse {
+  code: Int!
+  success: Boolean!
+  message: String!
+}
+
+type Meta {
+  totalCount: Int
+}
+
+enum Actions {
+  ADD
+  EDIT
+  REMOVE
+}
