@@ -1,9 +1,9 @@
 {
-  "name": "glo-backend",
-  "version": "0.1.0",
+  "name": "eon-backend",
+  "version": "1.0.0",
   "author": {
     "name": "Yaroslav Romanov",
-    "email": "yaroslaw.romanov@architech.nyc"
+    "email": "yarron6@gmail.com"
   },
   "private": true,
   "main": "dist/index.js",
