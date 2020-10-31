@@ -12,6 +12,7 @@
     "watch": "nodemon",
     "build": "tsc && cp -R src/schema dist",
     "start:prod": "node .",
+    "deploy": "pm2 start --name server npm -- run start:prods",
     "lint": "node_modules/.bin/eslint --max-warnings=4 --ext .js,.ts  --ignore-path .gitignore src/",
     "lint:fix": "node_modules/.bin/eslint --max-warnings=4 --ext .js,.ts  --ignore-path .gitignore --fix src/"
   },
