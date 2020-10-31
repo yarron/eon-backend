@@ -34,6 +34,6 @@ apolloServer.applyMiddleware({
 
 const PORT = process.env.PORT || 3010;
 const HOST = process.env.HOST || '127.0.0.1';
-app.listen(PORT as number, HOST as string, () => console.log(`Server is running in http://${HOST}:${PORT}`));
+app.listen(PORT as number, HOST as string, () => console.log(`Server is running in http://${HOST}:${PORT}${process.env.GRAPHQL_PATH}`));
 
 export default app;
