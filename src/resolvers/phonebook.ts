@@ -8,7 +8,10 @@ const fb: any = new FirebaseAPI();
 
 export const getPhonebookResolver = async (): Promise<any> => {
   const phoneBookRef = fb.firestore().collection('phonebook');
-  const phoneBookCollection = await phoneBookRef.get();
+  const phoneBookCollection = await phoneBookRef
+    .orderBy('firstName', 'asc')
+    .orderBy('lastName', 'asc')
+    .get();
 
   const result: IPhoneBook[] = [];
   phoneBookCollection.forEach((doc: any) => {
@@ -46,23 +49,25 @@ export const editPhonebookResolver = async (_: any, { doc }: any): Promise<any> 
 };
 
 export const addPhonebookResolver = async (_: any, { doc }: any): Promise<any> => {
-  const phoneBookRef = fb.firestore().collection('phonebook').doc();
+  const phoneBookRef = fb.firestore().collection('phonebook');
   const newDoc = { ...doc };
   delete newDoc.id;
 
   try {
-    await phoneBookRef.set(newDoc);
+    const result = await phoneBookRef.add(newDoc);
 
     return {
       code: 200,
       message: 'Phonebook added successfully!',
       success: true,
+      id: result.id,
     };
   } catch (error) {
     return {
       code: 500,
       message: error.message,
       success: false,
+      id: 0,
     };
   }
 };
