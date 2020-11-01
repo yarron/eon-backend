@@ -1,7 +1,14 @@
-# import Login, LoginMutationResponse from "./Auth.graphql"
+# import MutationResponse from "./Common.graphql"
+# import PhoneBookInput from "./Phonebook.graphql"
 
 type Mutation {
-  loginAuth(
-    login: Login
-  ): LoginMutationResponse
+  addPhonebook(
+    doc: PhoneBookInput!
+  ): MutationResponse
+  editPhonebook(
+    doc: PhoneBookInput!
+  ): MutationResponse
+  deletePhonebook(
+    id: ID!
+  ): MutationResponse
 }

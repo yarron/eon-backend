@@ -4,7 +4,7 @@ import express, { Application } from 'express';
 import { importSchema } from 'graphql-import';
 import path from 'path';
 import resolvers from './resolvers';
-import dataSources from './datasource';
+// import dataSources from './datasource';
 
 require('dotenv-flow').config();
 
@@ -14,13 +14,10 @@ app.use(cookieParser());
 
 const typeDefs = importSchema(path.resolve(__dirname, 'schema/main.graphql'));
 const apolloServer = new ApolloServer({
-  context: ({ req }) => {
-    const token = req.headers.authorization || req.cookies.access_key || '';
-    return { token };
-  },
   resolvers,
   typeDefs,
-  dataSources,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // dataSources: dataSources as any,
 });
 
 apolloServer.applyMiddleware({

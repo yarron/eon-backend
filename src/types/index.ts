@@ -26,3 +26,12 @@ export interface ResponseQueryI {
     totalCount: number;
   };
 }
+
+export interface IPhoneBook {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: string;
+  phone: string;
+}

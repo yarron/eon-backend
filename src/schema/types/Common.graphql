@@ -1,4 +1,4 @@
-interface MutationResponse {
+type MutationResponse {
   code: Int!
   success: Boolean!
   message: String!

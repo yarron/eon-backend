@@ -1,5 +1,5 @@
-# import CountriesRequest from "./Countries.graphql"
+# import PhoneBook from "./Phonebook.graphql"
 
 type Query {
-  countries: CountriesRequest
+  phonebook: [PhoneBook]
 }

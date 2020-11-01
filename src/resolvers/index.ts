@@ -1,13 +1,16 @@
 import { IResolvers } from 'apollo-server-express';
-import countriesResolver from './countries';
-import loginAuthResolver from './auth';
+import {
+  getPhonebookResolver, editPhonebookResolver, addPhonebookResolver, deletePhonebookResolver,
+} from './phonebook';
 
 const resolvers: IResolvers = {
   Query: {
-    countries: countriesResolver,
+    phonebook: getPhonebookResolver,
   },
   Mutation: {
-    loginAuth: loginAuthResolver,
+    addPhonebook: addPhonebookResolver,
+    editPhonebook: editPhonebookResolver,
+    deletePhonebook: deletePhonebookResolver,
   },
   MutationResponse: {
     // eslint-disable-next-line no-underscore-dangle
